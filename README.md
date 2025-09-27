@@ -1,12 +1,47 @@
-# React + Vite
+# 🎓 ITIans Platform  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+منصة لخريجي معهد تكنولوجيا المعلومات (ITI) للتواصل مع الشركات، متابعة الوظائف، وتقديم الشكاوي.  
+تم بناء المشروع باستخدام **Laravel (Backend) + React (Frontend) + PostgreSQL (Database) + Sanctum (Authentication).**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tech Stack
+- **Frontend:** React.js, TailwindCSS, react-i18next (Multi-language support)  
+- **Backend:** Laravel 10, Sanctum Authentication  
+- **Database:** PostgreSQL  
+- **Testing:** PHPUnit, Manual Testing  
+- **Version Control:** Git/GitHub  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+- 👤 تسجيل الدخول وتسجيل الحساب (Graduates – Companies – Admins).  
+- 📋 إدارة البروفايلات (Students Profiles & Company Profiles).  
+- 💼 الشركات تقدر تنشر وظائف، والخريجين يقدموا عليها.  
+- 📨 نظام شكاوي (Complaints System) مع status update (pending → approved → rejected).  
+- 🔔 Notifications مرتبطة بالشكاوي والوظائف.  
+- 🌍 دعم الترجمة (Arabic / English).  
+
+---
+
+## 📂 Database Design
+- **Users Table** → تخزين البيانات الأساسية (name, email, role).  
+- **Profiles Table** → مرتبطة بـ user_id لتوسيع البيانات.  
+- **Companies Table** → بيانات الشركات.  
+- **Jobs Table** → وظائف مرتبطة بالشركات.  
+- **Applications Table** → many-to-many بين users و jobs.  
+- **Complaints Table** → مرتبطة بـ user_id + status.  
+- **Notifications Table** → مرتبطة بالمستخدم أو الوظيفة.  
+
+---
+
+## 🚀 Installation & Run
+
+### Backend (Laravel)
+```bash
+cd backend
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
